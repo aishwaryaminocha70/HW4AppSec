@@ -41,7 +41,7 @@ class UseCard : AppCompatActivity() {
         button.text = "Use Card"
         button.setOnClickListener{
             var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsecclass.report").addConverterFactory(
-                GsonConverterFactory.create())////Fix for Part 3.5 by adding HTTPs
+                GsonConverterFactory.create())
             var retrofit: Retrofit = builder.build()
             var client: CardInterface = retrofit.create(CardInterface::class.java)
             Log.d("Use Card Going", "Going to use card now.")
