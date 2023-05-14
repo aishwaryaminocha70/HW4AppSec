@@ -1,0 +1,12 @@
+Looking at the UseCard.kt file in line 65 the intent.type = "text/giftcards" was causing issues for the API
+Looking at the CardInterface, I noticed there was a vunerablitiy as it was not validating a string to the header
+something like this can help fix the error a bit better because it will match a workable string that will apply to this parameter. 
+
+"fun isAuthorizationHeaderValid(authHeader: String?): Boolean {
+    if (authHeader == null) {
+        return false
+    }
+    val pattern = Pattern.compile(JWT_REGEX_PATTERN)
+    val matcher = pattern.matcher(authHeader)
+    return matcher.matches()
+}"
