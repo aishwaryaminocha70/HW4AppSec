@@ -1,15 +1,9 @@
 package com.example.giftcardsite
+
 import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -27,10 +21,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-class CardScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+
+class CardScrollingActivity : AppCompatActivity(){
     private var loggedInUser : User? = null
+    // private lateinit var sensorManager: SensorManager
+    // private var mAccel: Sensor? = null;
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_scrolling)
         setSupportActionBar(findViewById(R.id.toolbar))
         loggedInUser = intent.getParcelableExtra<User>("User")
@@ -42,7 +42,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
             }
             startActivity(intent)
         }
-        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://nyuappsec.com").addConverterFactory(
+        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
             GsonConverterFactory.create())
         var retrofit: Retrofit = builder.build()
         var client: CardInterface = retrofit.create(CardInterface::class.java)
@@ -56,7 +56,9 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
             override fun onFailure(call: Call<List<Card?>?>, t: Throwable) {
                 Log.d("Product Failure", "Product Failure in onFailure")
                 Log.d("Product Failure", t.message.toString())
+
             }
+
             override fun onResponse(call: Call<List<Card?>?>, response: Response<List<Card?>?>) {
                 if (!response.isSuccessful) {
                     Log.d("Product Failure", "Product failure. Yay.")
@@ -77,4 +79,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
+
+
+
 }
