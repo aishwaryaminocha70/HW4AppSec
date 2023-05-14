@@ -1,0 +1,17 @@
+Part 2.1: What's the difference?
+Intents, when not handled correctly, can cause problems. Take a look at the code on lines 69 to 73 of SecondFragment.kt and lines 68 to 70 of ThirdFragment.kt. These are two different ways of handling intents. For this portion of the assignment, you should create a text file, called difference.txt, which answers the following questions in 3 sentences or fewer.
+
+What are the two types of Intents?
+ - Implicit intents 
+ - Explicit intents
+Which of the two types of Intents is (generally) more secure?
+  - Explicit intent are usually considered more secure, because explicit intents are those in which the user has visibility too and knows exactly which activity can handle the requests.
+What type of Intent is shown on lines 69 to 73 of SecondFragment.kt?
+  -  Implicit extent
+What type of Intent is shown on lines 68 to 70 of ThirdFragment.kt?
+  - Explicit intent
+Which of these two Intents is the proper way to do an Intent?
+  - From analysing the code, it seemed that the explicit intent should be done. Also when I saw that the implicit intent was prompting brower activity that is not needed. 
+  In the SecondFragment.kt the intent is not done the right way becuase after registering it fruther opens up the data making it less secure.
+  Removing this intent from line 69-73 is the best way to keep this more secure
+  
