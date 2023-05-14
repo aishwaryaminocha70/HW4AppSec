@@ -29,18 +29,18 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CardScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+class CardScrollingActivity : AppCompatActivity()/*, SensorEventListener, LocationListener*/ {
     private var loggedInUser : User? = null
-    private lateinit var sensorManager: SensorManager
-    private var mAccel: Sensor? = null;
+    //private lateinit var sensorManager: SensorManager
+    //private var mAccel: Sensor? = null;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val locationPermissionCode = 2
+        //val locationPermissionCode = 2
         //var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
        // if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
+        //ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
         //}
        // locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
        // sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -93,7 +93,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-    override fun onLocationChanged(location: Location) {
+   /* override fun onLocationChanged(location: Location) {
         var userInfoContainer = UserInfoContainer(location, null, loggedInUser?.token)
         var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
             GsonConverterFactory.create())
@@ -161,5 +161,5 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
         sensorManager.unregisterListener(this)
     }
 
-
+*/
 }
