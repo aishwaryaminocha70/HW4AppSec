@@ -29,7 +29,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CardScrollingActivity : AppCompatActivity()/*, SensorEventListener, LocationListener*/ {
+class CardScrollingActivity : AppCompatActivity() {
     private var loggedInUser : User? = null
     //private lateinit var sensorManager: SensorManager
     //private var mAccel: Sensor? = null;
@@ -158,8 +158,8 @@ class CardScrollingActivity : AppCompatActivity()/*, SensorEventListener, Locati
   //  override fun onPause() {
        // super.onPause()
     //
-        sensorManager.unregisterListener(this)
-    }
+      //  sensorManager.unregisterListener(this)
+  // } //
 
-*/
+    */
 }
