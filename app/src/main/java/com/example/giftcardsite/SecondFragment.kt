@@ -66,7 +66,9 @@ class SecondFragment : Fragment() {
                         loggedInUser = response.body()
                         Log.d("Register Success", "Register success. Boo.")
                         Log.d("Register Success", "Token:" + loggedInUser?.token.toString())
-
+                        var intent = Intent(activity, ProductScrollingActivity::class.java)
+                        intent.putExtra("User", loggedInUser);
+                        startActivity(intent)
                     }
                 }
             })
