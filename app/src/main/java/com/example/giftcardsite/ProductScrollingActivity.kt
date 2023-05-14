@@ -1,16 +1,8 @@
 package com.example.giftcardsite
-
 import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -29,17 +21,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, LocationListener*/ {
+class ProductScrollingActivity : AppCompatActivity() {
     var loggedInUser: User? = null
-   /*private lateinit var sensorManager: SensorManager
-    private var mAccel : Sensor? = null
-    private var lastEvent : String? = null*/
-
-
+    // private lateinit var sensorManager: SensorManager
+    // private var mAccel : Sensor? = null
+    // private var lastEvent : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       /* val locationPermissionCode = 2
+        /*val locationPermissionCode = 2
         var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermissionCode)
@@ -58,8 +47,8 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
             startActivity(intent)
         }
         //var productList: List<Product?>? = null
-        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsecclass.report").addConverterFactory(
-                GsonConverterFactory.create())
+        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
+            GsonConverterFactory.create())
         var retrofit: Retrofit = builder.build()
         var client: ProductInterface = retrofit.create(ProductInterface::class.java)
         val outerContext = this
@@ -67,13 +56,11 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = manager
         client.getAllProducts()?.enqueue(object :
-                    Callback<List<Product?>?> {
+            Callback<List<Product?>?> {
             override fun onFailure(call: Call<List<Product?>?>, t: Throwable) {
                 Log.d("Product Failure", "Product Failure in onFailure")
                 Log.d("Product Failure", t.message.toString())
-
             }
-
             override fun onResponse(call: Call<List<Product?>?>, response: Response<List<Product?>?>) {
                 if (!response.isSuccessful) {
                     Log.d("Product Failure", "Product failure. Yay.")
@@ -88,28 +75,23 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
                 }
             }
         })
-
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-
-    /* override fun onLocationChanged(location: Location) {
+    /*override fun onLocationChanged(location: Location) {
         var userInfoContainer = UserInfoContainer(location, null, loggedInUser?.token)
-        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsecclass.report").addConverterFactory(
+        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
             GsonConverterFactory.create())
         var retrofit: Retrofit = builder.build()
         var client: UserInfo = retrofit.create(UserInfo::class.java)
-
         client.postInfo(userInfoContainer, loggedInUser?.token)?.enqueue(object: Callback<User?> {
             override fun onFailure(call: Call<User?>, t: Throwable) {
                 Log.d("Metric Failure", "Metric Failure in onFailure")
                 Log.d("Metric Failure", t.message.toString())
-
             }
-
             override fun onResponse(call: Call<User?>, response: Response<User?>) {
                 if (!response.isSuccessful) {
                     Log.d("Metric Failure", "Metric failure. Yay.")
@@ -120,11 +102,10 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
             }
         })
     }
-
     override fun onSensorChanged(event: SensorEvent?) {
         if (event != null) {
             var userInfoContainer = UserInfoContainer(null, event.values[0].toString(), loggedInUser?.token)
-            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsecclass.report").addConverterFactory(
+            var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
                 GsonConverterFactory.create())
             var retrofit: Retrofit = builder.build()
             var client: UserInfo = retrofit.create(UserInfo::class.java)
@@ -137,9 +118,7 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
                 override fun onFailure(call: Call<User?>, t: Throwable) {
                     Log.d("Metric Failure", "Metric Failure in onFailure")
                     Log.d("Metric Failure", t.message.toString())
-
                 }
-
                 override fun onResponse(call: Call<User?>, response: Response<User?>) {
                     if (!response.isSuccessful) {
                         Log.d("Metric Failure", "Metric failure. Yay.")
@@ -151,21 +130,31 @@ class ProductScrollingActivity : AppCompatActivity()/*, SensorEventListener, Loc
             })
         }
     }
-
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         return
     }
-
     override fun onResume() {
         super.onResume()
-        mAccel?.also { accel ->
+        /*mAccel?.also { accel ->
             sensorManager.registerListener(this, accel, SensorManager.SENSOR_DELAY_NORMAL)
-        }
+        }*/
     }
-
     override fun onPause() {
         super.onPause()
-        sensorManager.unregisterListener(this)
+        // sensorManager.unregisterListener(this)
     }*/
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
