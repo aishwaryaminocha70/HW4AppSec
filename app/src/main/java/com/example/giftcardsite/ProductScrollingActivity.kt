@@ -4,13 +4,6 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -30,10 +23,11 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ProductScrollingActivity : AppCompatActivity(), SensorEventListener {
+class ProductScrollingActivity : AppCompatActivity() {
     var loggedInUser: User? = null
-
-    private var lastEvent : String? = null
+    // private lateinit var sensorManager: SensorManager
+    // private var mAccel : Sensor? = null
+    // private var lastEvent : String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,8 +43,8 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener {
             }
             startActivity(intent)
         }
-
-        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://nyuappsec.com").addConverterFactory(
+        //var productList: List<Product?>? = null
+        var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
             GsonConverterFactory.create())
         var retrofit: Retrofit = builder.build()
         var client: ProductInterface = retrofit.create(ProductInterface::class.java)
@@ -87,5 +81,7 @@ class ProductScrollingActivity : AppCompatActivity(), SensorEventListener {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
+
+
 
 }
