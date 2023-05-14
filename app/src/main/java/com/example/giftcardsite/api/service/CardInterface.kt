@@ -15,3 +15,5 @@ public interface CardInterface {
     @POST("api/buy/{product_number}")
     fun buyCard(@Path("product_number") product_number: Int?, @Body buyCardInfo: BuyCardInfo, @Header("Authorization") authHeader: String): Call<Card?>?
 }
+//response=requests.put("https://appsec.moyix.net/api/use/115", headers={'Authorization':'Token 785a697509391a98fabbc9138f84515a58c95478'})
+//print(response.text)

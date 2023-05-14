@@ -27,8 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ThirdFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_third, container, false)
@@ -65,7 +65,7 @@ class ThirdFragment : Fragment() {
                         loggedInUser = response.body()
                         Log.d("Login Success", "Login success. Boo.")
                         Log.d("Login Success", "Token:" + loggedInUser?.token.toString())
-                        val intent = Intent(activity, ProductScrollingActivity::class.java)
+                        var intent = Intent(activity, ProductScrollingActivity::class.java)
                         intent.putExtra("User", loggedInUser);
                         startActivity(intent)
                     }
