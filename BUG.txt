@@ -1,6 +1,7 @@
-Looking at the UseCard.kt file in line 65 the intent.type = "text/giftcards" was causing issues for the API
-Looking at the CardInterface, I noticed there was a vunerablitiy as it was not validating a string to the header
-something like this can help fix the error a bit better because it will match a workable string that will apply to this parameter. 
+Looking at the UseCard.kt file in line 65 the intent.type = "text/giftcards" was causing issues.
+Part 4
+Looking at the CardInterface, I noticed there was a vunerablitiy as it was not validating a string to the header, this can cuase issues, as without authentication people can manuplate the interface. 
+something like this can help fix the error a bit better because it will match a workable string that will apply to this parameter. This will ensure that the correct gift card is being used for the correct user.
 
 "fun isAuthorizationHeaderValid(authHeader: String?): Boolean {
     if (authHeader == null) {
